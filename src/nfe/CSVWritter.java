@@ -23,13 +23,12 @@ public class CSVWritter {
 			bw.write(contenidoLinea1);
 			bw.newLine();
 
-
-			for (Libro libro : libros) {
-				bw.write(libro.toString());
-				bw.newLine();
+			if (libros != null) {
+				for (Libro libro : libros) {
+					bw.write(libro.toString());
+					bw.newLine();
+				}
 			}
-			
-			
 
 		} catch (IOException ioe) {
 			ioe.printStackTrace();

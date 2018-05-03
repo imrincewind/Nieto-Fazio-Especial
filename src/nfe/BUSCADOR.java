@@ -26,7 +26,10 @@ public class BUSCADOR {
 	}
 	
 	public  ArrayList<Libro> porGenero(String g) {
-		return this.buscarGenero(g).getLibros();
+		if(this.buscarGenero(g) != null){
+			return this.buscarGenero(g).getLibros();
+		}
+		else return null;
 	}
 	public  void addGenero(Genero g) {
 		generos.add(g);

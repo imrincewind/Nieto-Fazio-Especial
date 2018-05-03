@@ -11,7 +11,7 @@ public class Main {
 		BUSCADOR b = new BUSCADOR();
 		
 		CSVReader.main(args, b, pathEntrada);
-		ArrayList<Libro> librosFiltrados = b.porGenero("juegos");
+		ArrayList<Libro> librosFiltrados = b.porGenero("juegfgjud");
 		CSVWritter.main(args, librosFiltrados, pathSalida);
 	}
 
