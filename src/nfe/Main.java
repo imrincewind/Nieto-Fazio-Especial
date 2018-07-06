@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		String pathEntrada = "C:/TUDAI-ws/Nieto-Fazio-Especial/datasets/dataset4.csv";
-		String pathEntrada2 = "C:/TUDAI-ws/Nieto-Fazio-Especial/datasets/datasets2/dataset3.csv";
+		String pathEntrada2 = "C:/TUDAI-ws/Nieto-Fazio-Especial/datasets/datasets2/dataset4.csv";
 		String pathSalida = "C:/TUDAI-ws/Nieto-Fazio-Especial/datasets/salida.csv";
 		Timer tiempo = new Timer();
 		BUSCADOR b = new BUSCADOR();
@@ -25,18 +25,19 @@ public class Main {
 																					// de
 																					// mayor
 																					// valor
-		System.out.println(conectados);
+		//System.out.println(conectados);
+		
 		for (Genero genero : conectados.keySet()) {
 			System.out.println(genero.getNombre() + " - " + conectados.get(genero));
-		}
+		}/*
 		ArrayList<Genero> conexiones = new ArrayList<Genero>();
 		conexiones = BUSCADOR.conexiones("viajes");
 		/*for (Genero g : conexiones) {
 			System.out.println(g.getNombre());
 		}*/
 		GrafoDirigido grafo = BUSCADOR.getAfines("viajes");
-		
-		for (Genero genero : grafo.todasLasConexiones("viajes") ) {
+		System.out.println(grafo.todasLasConexiones("viajes ").size());
+		for (Genero genero : grafo.todasLasConexiones("viajes ") ) {
 			System.out.println(genero);
 		}
 		/*   //-------------PRIMERA ENTREGA DEL TP ESPECIAL-----------
@@ -52,7 +53,6 @@ public class Main {
 		 * CSVWritter.main(args, librosFiltrados, pathSalida);
 		 * 
 		 */
-
 	}
 
 }

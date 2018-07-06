@@ -60,6 +60,10 @@ public class Genero {
 	}
 	public void setNombre(String n) {
 		this.nombre = n;
-		
+	}
+	@Override
+	public boolean equals(Object obj) {
+		Genero tmp = (Genero) obj;
+		return this.nombre.equals(tmp.getNombre());
 	}
 }

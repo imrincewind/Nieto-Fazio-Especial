@@ -2,7 +2,7 @@ package nfe;
 
 import java.util.ArrayList;
 import java.util.Map;
-
+import java.util.Set;
 import java.util.HashMap;
 
 public class GrafoDirigido {
@@ -14,7 +14,9 @@ public class GrafoDirigido {
 		Genero gen = this.getGenero(g);
 		return DFS.DFS(gen);
 	}
-
+	public Set<Genero> conexiones(String g) {
+		return this.getGenero(g).getConexiones().keySet();
+	} 
 	public HashMap<Genero, Integer> masConectados(String genero, Integer cantidadABuscar) {
 		Genero gen = this.getGenero(genero); 
 		HashMap<Genero, Integer> masConectados = new HashMap<Genero, Integer>();
@@ -74,7 +76,16 @@ public class GrafoDirigido {
 		Genero g = generos.get(gen);
 		grafo.addGenero(gen);
 		ArrayList<Genero> vinculados = DFS.DFSVinculados(g);
-		for (Genero ge : vinculados) {
+		grafo.addGenero(vinculados.get(0).getNombre());
+		System.out.println(vinculados.size());
+		for (int i = 1; i < vinculados.size(); i++) {
+			//System.out.println(vinculados.get(i).getNombre());
+			
+			grafo.addGenero(vinculados.get(i).getNombre());
+			grafo.getGenero(vinculados.get(i).getNombre()).addConexion(vinculados.get(i-1));
+		}
+		
+		/*for (Genero ge : vinculados) {
 			grafo.addGenero(ge.getNombre());
 			ArrayList<String> tmp = new ArrayList<String>();
 			tmp.add(ge.getNombre());
@@ -82,7 +93,8 @@ public class GrafoDirigido {
 			tmp.remove(0);
 			tmp.add(gen);
 			grafo.setConexiones(ge.getNombre(), tmp);
-		}
+		}*/
+		
 		
 		
 		return grafo;
